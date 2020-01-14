@@ -9,7 +9,7 @@ import time
 email_subject = "商品上架提醒"
 sender = "1119494837@qq.com"
 password = "ehpcjmkkaodfhfbb"
-recipient = "11610802@mail.sustech.edu.cn"
+recipient = "414422927@qq.com"
 # recipient = "11610728@mail.sustech.edu.cn"
 url = "https://www.sephora.com/product/le-rouge-deep-velvet-lipstick-P448881?skuId=2236099&keyword=2236099"
 
@@ -45,6 +45,8 @@ while True:
                 log_file.close()
             break
     if not stop:
-        time.sleep(60*5)
+        time.sleep(30)
+        with open("check_in_stock_log.txt", "a") as log_file:
+            log_file.write(f"Out of stock at {datetime.datetime.now()}")
     else:
         break
