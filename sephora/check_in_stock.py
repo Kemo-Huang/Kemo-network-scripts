@@ -25,7 +25,7 @@ while True:
                 log_file = open("check_in_stock_log.txt", "a")
                 log_file.write(
                     f"found in stock at {datetime.datetime.now()}\n")
-                email_content = f"您关注的商品已上架，检测时间为: {datetime.datetime.now()}\n"
+                email_content = f"您关注的商品已上架，检测时间为: {datetime.datetime.now()}\n商品链接：{url}\n"
                 for recipient in recipients:
                     msg = EmailMessage()
                     msg.set_content(email_content)
