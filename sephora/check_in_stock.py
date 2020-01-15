@@ -13,7 +13,7 @@ recipients = ["414422927@qq.com", "574059378@qq.com"]
 # recipient = "11610728@mail.sustech.edu.cn"
 url = "https://www.sephora.com/product/le-rouge-deep-velvet-lipstick-P448881?skuId=2236099&keyword=2236099"
 
-with open("check_in_stock_log.txt", "a") as log_file:
+with open("check_in_stock.log", "a") as log_file:
     log_file.write(f"loop starts at {datetime.datetime.now()}\n")
 stop = False
 while True:
@@ -22,7 +22,7 @@ while True:
     for button in soup.find_all("button", {"class": "css-1j1jwa4"}):
         if "37" in button['aria-label']:
             if not "Out of stock" in button['aria-label']:
-                log_file = open("check_in_stock_log.txt", "a")
+                log_file = open("check_in_stock.log", "a")
                 log_file.write(
                     f"found in stock at {datetime.datetime.now()}\n")
                 email_content = f"您关注的商品已上架，检测时间为: {datetime.datetime.now()}\n商品链接：{url}\n"
